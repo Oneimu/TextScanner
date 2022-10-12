@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToHomeActivity();
+                goToMainActivity();
             }
         });
 
@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void goToHomeActivity() {
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+    private void goMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

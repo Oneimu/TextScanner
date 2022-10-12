@@ -13,6 +13,7 @@ pluginManagement {
 
         maven { url 'https://www.jitpack.io' }
 
+
     }
 }
 dependencyResolutionManagement {

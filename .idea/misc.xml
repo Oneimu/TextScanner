@@ -6,14 +6,16 @@
         <entry key="app/src/main/res/drawable/arrow_right.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/btn_custom.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/et_custom.xml" value="0.11" />
+        <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.294" />
         <entry key="app/src/main/res/font/andada.xml" value="0.14444444444444443" />
         <entry key="app/src/main/res/font/arbutus_slab.xml" value="0.1" />
         <entry key="app/src/main/res/font/bungee_inline.xml" value="0.1" />
         <entry key="app/src/main/res/font/cherry_cream_soda.xml" value="0.1" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.1" />
         <entry key="app/src/main/res/font/uncial_antiqua.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_edit.xml" value="0.2838541666666667" />
         <entry key="app/src/main/res/layout/activity_edit_text.xml" value="0.2838541666666667" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1675925925925926" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.18125" />

@@ -3,12 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.textscanner">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-<!--    <uses-permission android:name="android.permission.CAMERA"/>-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +18,10 @@
         android:theme="@style/Theme.TextScanner"
         tools:targetApi="31">
         <activity
-            android:name=".EditTextActivity"
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TextActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -44,9 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.canhub.cropper.CropImageActivity"/>
+        <activity android:name="com.canhub.cropper.CropImageActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
