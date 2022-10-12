@@ -28,13 +28,12 @@ import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
 import java.io.IOException;
-import java.net.NoRouteToHostException;
 
 //import com.canhub.cropper.CropImage;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button button_capture, button_copy;
+    Button button_capture, button_copy, button_edit, button_save;
     TextView textView;
     private static int REQUEST_CAMERA_CODE = 100;
 
@@ -47,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
 
         button_capture = findViewById(R.id.button_capture);
         button_copy = findViewById(R.id.button_copy);
+        button_edit = findViewById(R.id.button_edit);
         textView = findViewById(R.id.textView);
 
 
@@ -68,13 +68,20 @@ public class HomeActivity extends AppCompatActivity {
 
         });
 
-
-
         button_copy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String scannedText = textView.getText().toString();
                 copyToClipBoard(scannedText);
+            }
+        });
+
+        button_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String scannedText = textView.getText().toString();
+                goToEditTextActivity(scannedText);
+
             }
         });
 
@@ -131,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void goToEditTextActivity(String text){
-        Intent intent = new Intent(HomeActivity.this, EditTextActivity.class);
+        Intent intent = new Intent(HomeActivity.this, EditActivity.class);
         intent.putExtra("scantext", text);
         startActivity(intent);
     }
