@@ -65,7 +65,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/et_custom"
-        android:hint="Username"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textColor="@color/black"
@@ -91,12 +91,14 @@
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/et_custom"
         android:hint="Repeat Password"
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textSize="15sp" />
+
 
 
     <RelativeLayout
@@ -108,21 +110,15 @@
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_centerInParent="true"
+            android:layout_above="@+id/swipeLeft"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/btn_custom"
             android:backgroundTint="#2196F3"
             android:text="Register"
             android:textColor="@android:color/white" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_above="@id/swipeLeft"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/arrow_left" />
 
         <TextView
             android:id="@+id/swipeLeft"
@@ -131,7 +127,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
-            android:text="Swipe Left to login in"
+            android:text="Already have an account?"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
