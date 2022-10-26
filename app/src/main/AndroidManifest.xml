@@ -24,6 +24,9 @@
             android:name=".EditActivity"
             android:exported="false" />
         <activity
+            android:name=".EditActivity2"
+            android:exported="false" />
+        <activity
             android:name=".TextActivity"
             android:exported="false" />
         <activity
