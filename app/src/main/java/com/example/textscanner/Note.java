@@ -2,11 +2,12 @@ package com.example.textscanner;
 
 
 import io.realm.*;
+import com.google.firebase.Timestamp;
 
-public class Note extends RealmObject {
+public class Note {
     String title;
     String description;
-    long createdTime;
+    Timestamp createdTime;
 
     public String getTitle() {
         return title;
@@ -24,11 +25,11 @@ public class Note extends RealmObject {
         this.description = description;
     }
 
-    public long getCreatedTime() {
+    public Timestamp getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(long createdTime) {
+    public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
 }

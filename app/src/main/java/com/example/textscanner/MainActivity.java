@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.Query;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -15,6 +20,9 @@ import io.realm.RealmResults;
 import io.realm.Sort;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    NoteAdapter noteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,27 +37,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Realm.init(getApplicationContext());
-        Realm realm = Realm.getDefaultInstance();
+        recyclerView = findViewById(R.id.recyclerview);
+        setUpRecyclerView();
 
-        RealmResults<Note> notesList = realm.where(Note.class).findAll().sort("createdTime", Sort.DESCENDING);
+//        Realm.init(getApplicationContext());
+//        Realm realm = Realm.getDefaultInstance();
+//
+//        RealmResults<Note> notesList = realm.where(Note.class).findAll().sort("createdTime", Sort.DESCENDING);
+//        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),notesList);
+//        recyclerView.setAdapter(myAdapter);
+//
+//        notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
+//            @Override
+//            public void onChange(RealmResults<Note> notes) {
+//                myAdapter.notifyDataSetChanged();
+//            }
+//        });
 
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+
+
+    }
+
+    void setUpRecyclerView(){
+        Query query = Utility.getCollectionReferenceForNotes().orderBy("createdTime", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<Note> options = new FirestoreRecyclerOptions.Builder<Note>()
+                .setQuery(query, Note.class).build();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),notesList);
-        recyclerView.setAdapter(myAdapter);
+        noteAdapter = new NoteAdapter(options, this);
+        recyclerView.setAdapter(noteAdapter);
 
-        notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
-            @Override
-            public void onChange(RealmResults<Note> notes) {
-                myAdapter.notifyDataSetChanged();
-            }
-        });
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteAdapter.startListening();
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        noteAdapter.stopListening();
+    }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        noteAdapter.notifyDataSetChanged();
     }
 
     private void goToHomeActivity() {
