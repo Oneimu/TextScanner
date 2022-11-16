@@ -70,6 +70,10 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
         });
     }
 
+    public void firebaseUserSearch(){
+
+    }
+
     void deleteNoteFromFirebase(){
         DocumentReference documentReference;
 

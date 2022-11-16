@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -23,9 +24,13 @@ import androidx.core.content.ContextCompat;
 
 import com.canhub.cropper.CropImage;
 import com.canhub.cropper.CropImageView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
 
 import java.io.IOException;
 
@@ -46,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
 
         button_capture = findViewById(R.id.button_capture);
         button_copy = findViewById(R.id.button_copy);
+        button_save = findViewById(R.id.button_save);
         button_edit = findViewById(R.id.button_edit);
         textView = findViewById(R.id.textView);
 
@@ -85,8 +91,61 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveNote();
+                goMainActivity();
+
+            }
+        });
 
 
+
+
+    }
+
+    void saveNote(){
+        String title = "New Scan Text";
+        String description = textView.getText().toString();
+
+        Note note = new Note();
+
+        if (title.trim().isEmpty()){
+            note.setTitle("New Scan Text");
+        }else{
+            note.setTitle(title);
+        }
+
+        note.setDescription(description);
+        note.setCreatedTime(Timestamp.now());
+
+        saveNoteToFirebase(note);
+    }
+
+    void saveNoteToFirebase(Note note){
+        DocumentReference documentReference;
+
+
+        documentReference = Utility.getCollectionReferenceForNotes().document();
+
+
+        documentReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(HomeActivity.this, "Added Note Successful!", Toast.LENGTH_LONG);
+                }else{
+                    Toast.makeText(HomeActivity.this, "Failed to Add Note", Toast.LENGTH_LONG);
+                }
+            }
+        });
+    }
+
+    private void goMainActivity(){
+        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

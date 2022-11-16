@@ -1,6 +1,7 @@
 package com.example.textscanner;
 
 import androidx.appcompat.app.AppCompatActivity;
+//import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,10 +10,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
+
+import java.util.Arrays;
+import java.util.Locale;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     NoteAdapter noteAdapter;
+    SearchView searchView;
+    Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerview);
+        searchView = findViewById(R.id.search_bar);
+
+        searchView.clearFocus();
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+//                System.out.println("==================HERE");
+//
+//                System.out.println("-------------------------------"+newText.toLowerCase());
+                if (!newText.isEmpty()){
+                    System.out.println("-------------------------------"+newText.toLowerCase(Locale.ROOT));
+                    search(newText);
+                }else{
+                    System.out.println("Gote HERE");
+//                    setUpRecyclerView();
+                }
+                System.out.println("Got Here");
+//                setUpRecyclerView();
+                return true;
+            }
+        });
+
         setUpRecyclerView();
 
 //        Realm.init(getApplicationContext());
@@ -55,8 +92,17 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
+    }
 
+    void search(String text){
 
+        Query query = Utility.getCollectionReferenceForNotes().orderBy("createdTime", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<Note> options = new FirestoreRecyclerOptions.Builder<Note>()
+                .setQuery(query, Note.class).build();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        noteAdapter = new NoteAdapter(options, this);
+        recyclerView.setAdapter(noteAdapter);
     }
 
     void setUpRecyclerView(){

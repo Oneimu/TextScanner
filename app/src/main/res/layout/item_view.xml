@@ -36,7 +36,8 @@
         android:textSize="12dp"
         tools:text="Jan 21 2020 " />
 
-    <View style="@style/Divider"
-        android:layout_below="@id/timeoutput"/>
+    <View
+        style="@style/Divider"
+        android:layout_below="@id/timeoutput" />
 
 </RelativeLayout>
