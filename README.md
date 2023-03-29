@@ -1,8 +1,8 @@
 # Andriod Application (using Andriod Studio)
 
-# App Title: Text Scanner App
+## App Title: Text Scanner App
 
-# Project Overview
+### Project Overview
 
 The goal of this project is to design a mobile application that can take an image (either snapped within the app or uploaded) and the text within that image will be extracted and saved as a note (editable digital file). 
 The extracted text can be save as note within the app.
