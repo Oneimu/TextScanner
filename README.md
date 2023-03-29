@@ -24,12 +24,18 @@ Home page and the text view page
 OCR and Spell Checker
 - Google Cloud Vision will be used in extracting the text, and the android studio spell checker will be implemented to check if there is any wrongly spelled work that might have resulted from the inaccurate extraction of the text from the image.
 
+## APP DEMO
+
 ### SIGNIN AND LOGIN DEMO
 ![GIF-221123_152823](https://user-images.githubusercontent.com/62015433/228621513-bc974a42-2673-4930-8adc-44477c9bd90d.gif)
 
-### HOME PAGE, UPLOADING IMAGE TO BE EXTRACTED
-![GIF-221123_114318](https://user-images.githubusercontent.com/62015433/228621605-1747d435-e292-4063-8499-3beb00985e86.gif)
 
-### SEARCH OF THE NOTES
+
+### HOME PAGE, UPLOADING IMAGE TO BE EXTRACTED
 ![ezgif com-optimize](https://user-images.githubusercontent.com/62015433/228622741-53fe39c7-e1a5-45d2-b5db-80c410e927f9.gif)
 
+
+
+### SEARCH OF THE NOTES
+
+![GIF-221123_114318](https://user-images.githubusercontent.com/62015433/228621605-1747d435-e292-4063-8499-3beb00985e86.gif)
