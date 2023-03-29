@@ -33,5 +33,3 @@ OCR and Spell Checker
 ### SEARCH OF THE NOTES
 ![ezgif com-optimize](https://user-images.githubusercontent.com/62015433/228622741-53fe39c7-e1a5-45d2-b5db-80c410e927f9.gif)
 
-### 
-[Scan.gif.zip](https://github.com/Oneimu/TextScanner/files/11103805/Scan.gif.zip)
