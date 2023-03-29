@@ -15,11 +15,14 @@ Login and sign up page
 - The application design would allow users to either sign in with their username and password or sign in with Gmail or Facebook. 
 - First users can sign up by creating an account or with a google account or Facebook. Also, a forgotten password would a
 llow the user to enter their email (used to sign up) and they will receive a link to change their password
+
 Home page and the text view page
-For first-time users, the home page would have a default empty space with a top bar section that would contain some functionality to make the app easy to use. Also, they get to see the camera button and upload file button that would be located at the bottom left, they can choose to take a picture of the image or make an upload.  
-When an image has been uploaded, the image would be sent to the backend where Google Cloud Vision would be used to extract the text in the image, after that a note would be created in the text view, if the user is satisfied with the outcome they can save the note or download it, else they can make edition. Spell check would make the edition process easier for the user as they can see the possible inaccurate conversion and fix them.
+- For first-time users, the home page would have a default empty space with a top bar section that would contain some functionality to make the app easy to use. Also, they get to see the camera button and upload file button that would be located at the bottom left, they can choose to take a picture of the image or make an upload.  
+- When an image has been uploaded, the image would be sent to the backend where Google Cloud Vision would be used to extract the text in the image, after that a note would be created in the text view, if the user is satisfied with the outcome they can save the note or download it, else they can make edition. 
+- Spell check would make the edition process easier for the user as they can see the possible inaccurate conversion and fix them.
+
 OCR and Spell Checker
-Google Cloud Vision will be used in extracting the text, and the android studio spell checker will be implemented to check if there is any wrongly spelled work that might have resulted from the inaccurate extraction of the text from the image.
+- Google Cloud Vision will be used in extracting the text, and the android studio spell checker will be implemented to check if there is any wrongly spelled work that might have resulted from the inaccurate extraction of the text from the image.
 ![GIF-221123_152823](https://user-images.githubusercontent.com/62015433/228621513-bc974a42-2673-4930-8adc-44477c9bd90d.gif)
 ![GIF-221123_114318](https://user-images.githubusercontent.com/62015433/228621605-1747d435-e292-4063-8499-3beb00985e86.gif)
 
