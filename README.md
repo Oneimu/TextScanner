@@ -20,3 +20,4 @@ For first-time users, the home page would have a default empty space with a top 
 When an image has been uploaded, the image would be sent to the backend where Google Cloud Vision would be used to extract the text in the image, after that a note would be created in the text view, if the user is satisfied with the outcome they can save the note or download it, else they can make edition. Spell check would make the edition process easier for the user as they can see the possible inaccurate conversion and fix them.
 OCR and Spell Checker
 Google Cloud Vision will be used in extracting the text, and the android studio spell checker will be implemented to check if there is any wrongly spelled work that might have resulted from the inaccurate extraction of the text from the image.
+![GIF-221123_152823](https://user-images.githubusercontent.com/62015433/228621513-bc974a42-2673-4930-8adc-44477c9bd90d.gif)
